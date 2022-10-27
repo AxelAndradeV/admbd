@@ -1,0 +1,41 @@
+
+.nav-item-text{
+	font-family: 'Francois One', sans-serif;
+}
+
+
+.producto-item{
+	font-family: 'Titan One', cursive;
+	word-wrap: break-word;
+	text-align: center;
+}
+.card{
+	width: 15rem;
+    min-height: 200px;
+}
+.producto-item-img{
+	width: 10rem;
+    min-height: 200px;
+    max-height: auto;
+}
+
+.producto-item-precio{
+	font-family: 'Francois One', sans-serif;
+	
+	color:black;
+}
+
+.producto-item-boton{
+	font-family: 'Francois One', sans-serif;
+}
+.paginacion-item{
+	font-family: 'Francois One', sans-serif;
+}
+
+.tabla-productos thead th{
+	font-family: 'Francois One', sans-serif;
+}
+
+.tabla-productos tbody tr td{
+	font-family: 'Francois One', sans-serif;
+}

@@ -10,11 +10,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Carrito</title>
+    
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <?php include 'template/header.php' ?>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">Logo</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -41,28 +42,29 @@
             </ul>
            
         </div>
-    </nav>
-    <br><br>
+    </nav> <br><br>-->
+    
     
     <div class="container">
       
         <br>
-        <h1>Lista de carrito</h1>
-        <div class="alert alert-success" role="alert">
+        <h1 style="font-family:Amatic SC, sans-serif;font-weight: 600;">Lista de carrito</h1>
+        
             
             <?php
                         if (isset($_GET['mensaje'])) {
+                            echo '<div class="alert alert-success" role="alert">';
                             echo $_GET['mensaje'];
-                            
+                            echo '</div>';
                             //echo $_GET['mensaje'];
                         } 
             ?>
            
-        </div>
+       
         
        
         <hr>
-        <table class="table table-bordered table-striped ">
+        <table class="table table-bordered table-striped tabla-productos animate__animated animate__jackInTheBox animate__delay-1s">
             <thead>
                 <tr>
                     <th width="20%">ID</th>
@@ -96,10 +98,46 @@
                                 </tr>;';
                             $total+=$producto['productoprecio']*$producto['productocantidad'];
                         }
+
+                        echo ' <tr>
+                    <td colspan="4" style="text-align: right;" align="3"><h3>Total</h3></td>
+                    <td align="3"><h3>'.number_format($total,2).'</h3></td>
+                    
+                     </tr>';
+
+                     echo '<tr>
+                <td colspan="6">
+                     <form action="../business/ordenaction.php" method="POST">
+                        <div class="alert alert-success">
+                          <div class="form-group">
+                            <label for="nombre">Ingrese su nombre: </label>
+                            <input type="text" name="clientenombre" class="form-control">
+                            <label for="telefono">Teléfono: </label>
+                            <input type="number" name="clientetelefono" class="form-control">
+                            <label for="email">Correo: </label>
+                            <input type="email" name="clientecorreo" class="form-control">
+                    
+                            <label for="metodo">Método de pago: </label>
+                            <select name="clientemetodo" class="form-control">
+                                <option value="1">Efectivo</option>
+                                <option value="2">Sinpe</option>
+                                <option value="3">Tarjeta</option>
+                            </select>
+                           
+                            <input style="margin-top: 1rem;" type="submit" class="btn btn-success btn-block btn-lg" name="ordenar" value="Realizar orden">
+                           </div>
+                        </div>
+                    </form>
+                </td>
+               
+              
+            </tr>';
+
                     }else{
                     echo ' <div class="alert alert-success" role="alert">
                                 No hay productos :c
                             </div>';
+                    echo '';
                     }
                     
                 ?>
@@ -113,15 +151,15 @@
                     <td width="5%"><button class="btn btn-danger" type="button">Eliminar</button></td>
                 </tr> -->
                     
-                <tr>
+                <!-- <tr>
                     <td colspan="4" style="text-align: right;" align="3"><h3>Total</h3></td>
                     <td align="3"><h3><?php echo number_format($total,2) ?></h3></td>
                     
-                </tr>
+                </tr> -->
 
                 
             </tbody>
-            <tr>
+            <!-- <tr>
                 <td colspan="6">
                      <form action="../business/ordenaction.php" method="POST">
                         <div class="alert alert-success">
@@ -147,7 +185,7 @@
                 </td>
                
               
-            </tr>
+            </tr> -->
         </table>
          <tr>
                                        <?php
@@ -158,6 +196,8 @@
            
         
     </div>
+
+    <?php include 'template/footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

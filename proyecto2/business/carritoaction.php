@@ -16,12 +16,12 @@
                     'productocantidad'=>$cantidad
                 );
                 $_SESSION['carrito'][0] = $producto;
-                header("location: ../view/index.php?mensaje=exito" );
+                header("location: ../view/index.php?pagina=1&mensaje=exito" );
             }else{
                 $columnaids=array_column($_SESSION['carrito'],"productoid");
 
                 if(in_array($id,$columnaids)){
-                    header("location: ../view/index.php?mensaje=repetido" );
+                    header("location: ../view/index.php?pagina=1&mensaje=repetido" );
                 }else{
                     $cantidadProductos = count($_SESSION['carrito']);
                     $producto = array(
@@ -31,7 +31,7 @@
                         'productocantidad'=>$cantidad
                     );
                     $_SESSION['carrito'][$cantidadProductos] = $producto;
-                    header("location: ../view/index.php?mensaje=exito" );
+                    header("location: ../view/index.php?pagina=1&mensaje=exito" );
                 }
                 
             }
